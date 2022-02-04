@@ -15,17 +15,21 @@ void CandidatesGenerator::preprocessPointCloud(util::Cloud &cloud) {
   printf("Processing cloud with %zu points.\n",
          cloud.getCloudOriginal()->size());
 
+  printf("Removing NaNs.\n");
   cloud.removeNans();
 
+  printf("Filtering workspace.\n");
   cloud.filterWorkspace(params_.workspace_);
 
   if (params_.voxelize_) {
+    printf("Voxelizing cloud.\n");
     cloud.voxelizeCloud(params_.voxel_size_);
   }
 
   cloud.calculateNormals(params_.num_threads_, params_.normals_radius_);
 
   if (params_.refine_normals_k_ > 0) {
+    printf("Refining normals.\n");
     cloud.refineNormals(params_.refine_normals_k_);
   }
 

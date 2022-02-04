@@ -152,13 +152,19 @@ Cloud::Cloud(const std::string &filename_left,
 }
 
 void Cloud::removeNans() {
+  printf("Cloud::removeNans: Starting and getting inliers.\n");
   pcl::PointIndices::Ptr inliers(new pcl::PointIndices());
+  printf("Cloud::removeNans: Starting removeNaNFromPointCloud.\n");
   pcl::removeNaNFromPointCloud(*cloud_processed_, inliers->indices);
   if (inliers->indices.size() < cloud_processed_->size()) {
+    printf("Cloud::removeNans: ExtractIndices.\n");
     pcl::ExtractIndices<pcl::PointXYZRGBA> eifilter(true);
+    printf("Cloud::removeNans: setInputCloud.\n");
     eifilter.setInputCloud(cloud_processed_);
+    printf("Cloud::removeNans: setIndices.\n");
     eifilter.setIndices(inliers);
-    eifilter.filter(*cloud_processed_);
+    printf("Cloud::removeNans: filter.\n");
+    // eifilter.filter(*cloud_processed_);
     printf("Cloud after removing NANs: %zu\n", cloud_processed_->size());
   }
 }

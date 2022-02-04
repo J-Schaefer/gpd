@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "*.tex": "latex",
+        "*.sta": "latex",
+        "*.aux": "latex",
+        "*.out": "latex",
+        "*.bbl": "bibtex",
+        "*.fdb_latexmk": "log",
+        "*.blg": "log",
+        "*.fls": "log",
+        "*.toc": "latex",
+        "syslog": "log",
+        "*.1": "log",
+        "*.cbx": "latex",
+        "*.bbx": "latex",
+        "*.jinja2": "xml",
+        "array": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
+    }
+}
