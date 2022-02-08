@@ -164,7 +164,7 @@ void Cloud::removeNans() {
     printf("Cloud::removeNans: setIndices.\n");
     eifilter.setIndices(inliers);
     printf("Cloud::removeNans: filter.\n");
-    // eifilter.filter(*cloud_processed_);
+    eifilter.filter(*cloud_processed_);
     printf("Cloud after removing NANs: %zu\n", cloud_processed_->size());
   }
 }
